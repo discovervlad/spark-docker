@@ -6,6 +6,6 @@ ENV SPARK_HOME /usr/local/spark-2.0.0-bin-hadoop2.7
  
 ENV PATH $PATH:${SPARK_HOME}/bin
 RUN curl -s ${SPARK_ARCHIVE} | tar -xz -C /usr/local/
-ADD ./spark-sas7bdat_2.11-2.0.0.jar jars/spark-sas7bdat_2.11-2.0.0.jar
+ADD ./spark-sas7bdat_2.11-2.0.0.jar $SPARK_HOME/jars/spark-sas7bdat_2.11-2.0.0.jar
  
 WORKDIR $SPARK_HOME
