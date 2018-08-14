@@ -1,0 +1,14 @@
+package example
+
+import org.apache.spark.sql.SQLContext
+import com.github.saurfang.sas.spark._
+import java.util.Calendar
+
+object Hello {
+  def main(args: Array[String]) {
+    val sqlContext = new SQLContext(sc)
+    println(Calendar.getInstance().getTime())
+    val simdata = sqlContext.sasFile("/tmp/home/sales.sas7bdat")
+    println(Calendar.getInstance().getTime())
+  }
+}

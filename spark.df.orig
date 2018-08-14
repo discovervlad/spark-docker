@@ -1,4 +1,4 @@
-FROM hseeberger/scala-sbt
+FROM java:8
  
 # SPARK
 ARG SPARK_ARCHIVE=http://d3kbcqa49mib13.cloudfront.net/spark-2.0.0-bin-hadoop2.7.tgz
@@ -8,4 +8,8 @@ ENV PATH $PATH:${SPARK_HOME}/bin
 RUN curl -s ${SPARK_ARCHIVE} | tar -xz -C /usr/local/
 COPY ./lib/*.jar $SPARK_HOME/jars/
 
+RUN wget http://scala-lang.org/files/archive/scala-2.12.1.deb
+RUN dpkg -i scala-2.12.1.deb
+RUN apt-get -y install scala
+ 
 WORKDIR $SPARK_HOME
